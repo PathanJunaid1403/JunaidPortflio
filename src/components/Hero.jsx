@@ -30,8 +30,8 @@ const Hero = () => {
         </p>
 
         <h1 className="hero__name">
-          Juned<br />
-          <span className="hero__name-outline">Khan.</span>
+          Juned Khan<br />
+          <span className="hero__name-outline">Pathan.</span>
         </h1>
 
         <h2 className="hero__title">
