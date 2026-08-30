@@ -18,6 +18,7 @@ const Hero = () => {
   }, []);
 
   return (
+
     <section id="home" className="hero">
       <div className="hero__bg-grid" />
       <div className="hero__blob hero__blob--1" />
@@ -35,16 +36,17 @@ const Hero = () => {
         </h1>
 
         <h2 className="hero__title">
-          FrontEnd Developer &amp; Back-Office Executive
+          FrontEnd Developer &amp; UI Enthusiast
           <span className="hero__title-cursor">|</span>
         </h2>
 
-
         <p className="hero__desc">
-          A motivated fresher with a <mark>Diploma in FrontEnd Development</mark> and strong
-          skills in <mark>HTML</mark>, <mark>CSS</mark> &amp; <mark>JavaScript</mark>.
-          Seeking a full-time opportunity to grow and contribute effectively in
-          FrontEnd development or back-office/administrative roles.
+          A passionate Frontend Developer with a <mark>Diploma in FrontEnd Development</mark> and
+          hands-on experience building responsive interfaces using <mark>HTML</mark>, <mark>CSS</mark>,{" "}
+          <mark>JavaScript</mark> &amp; <mark>React (Basics)</mark>. Recently completed a{" "}
+          <mark>6-month internship at SAP Infosystems Pvt. Ltd. (Aug 2025 – Feb 2026)</mark>,
+          where I developed and optimized real-world web UIs — eager to bring that experience
+          to a full-time frontend role.
         </p>
 
         <div className="hero__actions">
@@ -63,7 +65,7 @@ const Hero = () => {
         </div>
 
         <div className="hero__socials">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="hero__social-link">
+          <a href="https://github.com/PathanJunaid1403" target="_blank" rel="noreferrer" className="hero__social-link">
             <GithubOutlined />
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hero__social-link">

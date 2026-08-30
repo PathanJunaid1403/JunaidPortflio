@@ -8,15 +8,15 @@ import {
 } from "@ant-design/icons";
 
 const stats = [
-  { value: "1+", label: "Month of Training" },
-  { value: "5+", label: "Projects Built" },
-  { value: "1", label: "Certifications" },
+  { value: "6", label: "Months of Course" },
+  { value: "3+", label: "Projects Built" },
+  { value: "2", label: "Certifications" },
   { value: "3", label: "Languages Known" },
 ];
 
 const facts = [
   { icon: <CalendarOutlined />, text: "DOB: 14 March 1997" },
-  { icon: <EnvironmentOutlined />, text: "Kalewadi, Pune, Maharashtra – 411017" },
+  { icon: <EnvironmentOutlined />, text: "Hinjewadi Phase 1, Pune, Maharashtra – 411057" },
   { icon: <GlobalOutlined />, text: "Languages: English, Hindi, Marathi" },
   { icon: <UserOutlined />, text: "B.Sc Environmental Science, CGPA: 7.73" },
 ];
@@ -33,7 +33,7 @@ const About = () => {
 
         <Row gutter={[60, 40]} align="middle">
           <Col xs={24} md={10}>
-            <div className="about__image-wrap">
+            <div className="about__image-wrap reveal">
               <div className="about__image-frame">
                 <div className="about__avatar">
                   <div className="about__avatar-initials">JK</div>
@@ -55,27 +55,31 @@ const About = () => {
           </Col>
 
           <Col xs={24} md={14}>
-            <div className="about__content">
-              <Tag className="about__tag">Fresher — Available Immediately</Tag>
+            <div className="about__content reveal">
+              <Tag className="about__tag">Frontend Developer — Available Immediately</Tag>
 
               <p className="about__text">
-                Hello! I'm <strong>Juned Khan</strong>, a motivated and hardworking fresher
-                from Pune, Maharashtra. I recently completed a{" "}
-                <strong>Diploma in FrontEnd Development (Nov 2024 – Apr 2025)</strong> and hold a{" "}
-                <strong>B.Sc in Environmental Science (CGPA: 7.73)</strong>.
+                Hello! I'm <strong>Juned Khan</strong>, a Frontend Developer from Latur,
+                Maharashtra. I hold a{" "}
+                <strong>Diploma in Front End Development (Oct 2024 – March 2025)</strong> and a{" "}
+                <strong>B.Sc in Environmental Science (CGPA: 7.73)</strong> 
+                {/* — backed by real-world experience from a{" "} */}
+                {/* <strong>6-month internship at SAP Infosystems Pvt. Ltd. (Aug 2025 – Feb 2026).</strong> */}
               </p>
 
               <p className="about__text">
-                I have hands-on skills in <strong>HTML, CSS, JavaScript</strong>, along with
-                proficiency in <strong>Microsoft Excel, Word, and PowerPoint</strong>. I'm comfortable
-                with data entry, file management, documentation, and have a good typing speed —
-                making me equally suited for FrontEnd development and back-office/administrative roles.
+                During my Diploma, I worked on building and refining responsive web interfaces,
+                translating designs into clean, structured code using <strong>HTML5</strong>,{" "}
+                <strong>CSS3</strong>, <strong>JavaScript</strong>, and got hands-on with{" "}
+                <strong>React Js</strong> — including functional components, props, and hooks.
+                I gained practical exposure to UI workflows, cross-browser compatibility, and
+                delivering polished front-end experiences in a professional team environment.
               </p>
 
               <p className="about__text">
-                I'm a quick learner with a positive attitude, strong teamwork ability and
-                excellent time management skills. I'm eager to join a reputed organization
-                where I can apply my skills and grow professionally.
+                I write semantic, maintainable markup and care deeply about UI detail — from
+                layout consistency to smooth interactions. I'm a fast learner who thrives in
+                collaborative settings and is ready to contribute from day one.
               </p>
 
               <div className="about__facts">

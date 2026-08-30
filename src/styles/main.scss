@@ -1,26 +1,31 @@
 // ============================================================
-// VARIABLES
+// VARIABLES — LIGHT THEME
 // ============================================================
-$bg: #0a0a0f;
-$bg-card: #111118;
-$bg-card-hover: #16161f;
-$border: rgba(255, 255, 255, 0.07);
-$border-hover: rgba(226, 255, 93, 0.3);
-$text: #e8e8f0;
-$text-muted: #8888a8;
-$accent: #e2ff5d;
-$accent-blue: #00d4ff;
-$accent-red: #ff6b6b;
-$font-display: 'Space Mono', monospace;
-$font-body: 'DM Sans', sans-serif;
-$transition: 0.3s ease;
-$radius: 16px;
-$radius-sm: 8px;
+$bg: #f5f4f0;
+$bg-alt: #eeecea;
+$bg-card: #ffffff;
+$bg-card-hover: #fafaf8;
+$border: rgba(0, 0, 0, 0.08);
+$border-hover: rgba(99, 102, 241, 0.4);
+$text: #1a1a2e;
+$text-muted: #6b6b80;
+$accent: #6366f1;
+$accent-warm: #f59e0b;
+$accent-red: #ef4444;
+$accent-green: #10b981;
+$font-display: 'Syne', sans-serif;
+$font-body: 'Outfit', sans-serif;
+$transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$radius: 20px;
+$radius-sm: 10px;
+$shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+$shadow-md: 0 8px 32px rgba(0,0,0,0.1);
+$shadow-lg: 0 20px 60px rgba(0,0,0,0.14);
 
 // ============================================================
 // RESET & BASE
 // ============================================================
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -36,7 +41,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: rgba($accent, 0.25); }
+::selection { background: rgba($accent, 0.15); color: $accent; }
 
 a { color: inherit; text-decoration: none; }
 
@@ -53,11 +58,11 @@ img { max-width: 100%; display: block; }
 .section {
   padding: 100px 0;
   position: relative;
-  &:nth-child(even) { background: rgba(255,255,255,0.012); }
+  &:nth-child(even) { background: $bg-alt; }
 }
 
 mark {
-  background: rgba($accent, 0.15);
+  background: rgba($accent, 0.12);
   color: $accent;
   padding: 1px 6px;
   border-radius: 4px;
@@ -76,14 +81,16 @@ mark {
 .section-num {
   font-family: $font-display;
   color: $accent;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   white-space: nowrap;
 }
 
 .section-title {
   font-family: $font-display;
   font-size: clamp(24px, 4vw, 32px);
-  font-weight: 700;
+  font-weight: 800;
   color: $text;
   white-space: nowrap;
 }
@@ -98,8 +105,9 @@ mark {
     content: '';
     position: absolute;
     left: 0; top: 0;
-    width: 80px; height: 1px;
+    width: 80px; height: 2px;
     background: $accent;
+    border-radius: 2px;
   }
 }
 
@@ -114,10 +122,12 @@ mark {
   padding: 20px 0;
 
   &--scrolled {
-    background: rgba($bg, 0.9);
+    background: rgba($bg, 0.92);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 12px 0;
     border-bottom: 1px solid $border;
+    box-shadow: $shadow-sm;
   }
 
   &__inner {
@@ -132,7 +142,7 @@ mark {
   &__logo {
     font-family: $font-display;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     user-select: none;
     flex-shrink: 0;
@@ -148,13 +158,13 @@ mark {
     gap: 4px;
     margin-left: auto;
     align-items: center;
-
     @media (max-width: 768px) { display: none; }
   }
 
   &__link {
     font-family: $font-display;
     font-size: 13px;
+    font-weight: 600;
     color: $text-muted;
     padding: 8px 14px;
     border-radius: $radius-sm;
@@ -173,28 +183,33 @@ mark {
       transition: $transition;
     }
 
-    &:hover { color: $text; background: rgba(255,255,255,0.05); }
+    &:hover { color: $text; background: rgba($accent, 0.06); }
 
     &--active {
       color: $accent;
+      background: rgba($accent, 0.08);
       .navbar__link-dot { opacity: 1; }
     }
   }
 
   &__resume-btn {
-    background: transparent !important;
-    border: 1px solid $accent !important;
-    color: $accent !important;
+    background: $accent !important;
+    border: none !important;
+    color: #fff !important;
     font-family: $font-display !important;
     font-size: 12px !important;
+    font-weight: 700 !important;
     border-radius: $radius-sm !important;
     padding: 6px 18px !important;
     height: auto !important;
     transition: $transition !important;
     flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba($accent, 0.3) !important;
 
     &:hover {
-      background: rgba($accent, 0.1) !important;
+      opacity: 0.88 !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba($accent, 0.4) !important;
     }
 
     @media (max-width: 768px) { display: none !important; }
@@ -212,7 +227,7 @@ mark {
     font-size: 16px;
     transition: $transition;
 
-    &:hover { border-color: $accent; }
+    &:hover { border-color: $accent; background: rgba($accent, 0.06); }
 
     @media (max-width: 768px) { display: flex; align-items: center; }
   }
@@ -221,11 +236,11 @@ mark {
 // Mobile Drawer
 .mobile-drawer {
   .ant-drawer-content {
-    background: #0e0e16 !important;
+    background: $bg !important;
     border-left: 1px solid $border;
   }
   .ant-drawer-header {
-    background: #0e0e16 !important;
+    background: $bg !important;
     border-bottom: 1px solid $border !important;
   }
   .ant-drawer-title { color: $text !important; }
@@ -233,7 +248,7 @@ mark {
   &__logo {
     font-family: $font-display;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 32px;
     padding-bottom: 20px;
     border-bottom: 1px solid $border;
@@ -253,7 +268,7 @@ mark {
     font-weight: 500;
     transition: $transition;
 
-    &:hover { background: rgba(255,255,255,0.05); color: $text; }
+    &:hover { background: rgba($accent, 0.06); color: $text; }
     &--active { color: $accent; background: rgba($accent, 0.08); }
   }
 
@@ -280,30 +295,30 @@ mark {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(rgba($accent, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($accent, 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
   }
 
   &__blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(80px);
     pointer-events: none;
 
     &--1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba($accent, 0.12) 0%, transparent 70%);
-      top: -100px; left: -100px;
-      animation: blobFloat 8s ease-in-out infinite;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba($accent, 0.15) 0%, transparent 70%);
+      top: -150px; left: -150px;
+      animation: blobFloat 9s ease-in-out infinite;
     }
 
     &--2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba($accent-blue, 0.1) 0%, transparent 70%);
-      bottom: -50px; right: -50px;
-      animation: blobFloat 10s ease-in-out infinite reverse;
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba($accent-warm, 0.12) 0%, transparent 70%);
+      bottom: -80px; right: -80px;
+      animation: blobFloat 11s ease-in-out infinite reverse;
     }
   }
 
@@ -321,27 +336,31 @@ mark {
     gap: 12px;
     font-family: $font-display;
     font-size: 14px;
+    font-weight: 600;
     color: $accent;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.7s ease 0.1s both;
 
     &-line {
       display: block;
-      width: 40px; height: 1px;
+      width: 40px; height: 2px;
       background: $accent;
+      border-radius: 2px;
     }
   }
 
   &__name {
     font-family: $font-display;
     font-size: clamp(52px, 9vw, 88px);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1;
     color: $text;
     margin-bottom: 8px;
     letter-spacing: -2px;
+    animation: fadeUp 0.7s ease 0.2s both;
 
     &-outline {
-      -webkit-text-stroke: 2px $text;
+      -webkit-text-stroke: 2px $accent;
       color: transparent;
     }
   }
@@ -352,6 +371,7 @@ mark {
     font-weight: 400;
     color: $text-muted;
     margin-bottom: 24px;
+    animation: fadeUp 0.7s ease 0.3s both;
 
     &-cursor {
       display: inline-block;
@@ -367,6 +387,7 @@ mark {
     color: $text-muted;
     line-height: 1.8;
     margin-bottom: 36px;
+    animation: fadeUp 0.7s ease 0.4s both;
   }
 
   &__actions {
@@ -374,6 +395,7 @@ mark {
     gap: 16px;
     flex-wrap: wrap;
     margin-bottom: 40px;
+    animation: fadeUp 0.7s ease 0.5s both;
   }
 
   &__btn {
@@ -386,16 +408,17 @@ mark {
 
     &--primary {
       background: $accent !important;
-      color: $bg !important;
+      color: #fff !important;
       border: none !important;
-      &:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba($accent, 0.3) !important; }
+      box-shadow: 0 6px 24px rgba($accent, 0.35) !important;
+      &:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba($accent, 0.45) !important; }
     }
 
     &--outline {
       background: transparent !important;
-      border: 1px solid $border-hover !important;
+      border: 1.5px solid rgba($accent, 0.35) !important;
       color: $text !important;
-      &:hover { border-color: $accent !important; color: $accent !important; }
+      &:hover { border-color: $accent !important; color: $accent !important; background: rgba($accent, 0.04) !important; }
     }
   }
 
@@ -403,23 +426,27 @@ mark {
     display: flex;
     gap: 16px;
     margin-bottom: 60px;
+    animation: fadeUp 0.7s ease 0.6s both;
   }
 
   &__social-link {
     width: 44px; height: 44px;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     border-radius: $radius-sm;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 18px;
     color: $text-muted;
+    background: $bg-card;
+    box-shadow: $shadow-sm;
     transition: $transition;
 
     &:hover {
       border-color: $accent;
       color: $accent;
       transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba($accent, 0.2);
     }
   }
 
@@ -434,6 +461,7 @@ mark {
     gap: 8px;
     font-size: 11px;
     font-family: $font-display;
+    font-weight: 600;
     color: $text-muted;
     cursor: pointer;
     animation: bounceDown 2s ease infinite;
@@ -444,17 +472,19 @@ mark {
   &__badge {
     position: absolute;
     top: 120px; right: 24px;
-    background: rgba($bg-card, 0.9);
-    border: 1px solid rgba($accent, 0.2);
+    background: $bg-card;
+    border: 1.5px solid rgba($accent-green, 0.3);
     border-radius: 100px;
     padding: 8px 16px;
     font-size: 12px;
     font-family: $font-display;
-    color: $accent;
+    font-weight: 600;
+    color: $text;
     display: flex;
     align-items: center;
     gap: 8px;
     backdrop-filter: blur(10px);
+    box-shadow: $shadow-sm;
     animation: fadeInRight 0.8s ease 0.5s both;
 
     @media (max-width: 480px) { display: none; }
@@ -463,8 +493,8 @@ mark {
   &__badge-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: #00d97e;
-    box-shadow: 0 0 8px rgba(#00d97e, 0.6);
+    background: $accent-green;
+    box-shadow: 0 0 8px rgba($accent-green, 0.6);
     animation: pulse 2s ease infinite;
   }
 }
@@ -473,9 +503,7 @@ mark {
 // ABOUT
 // ============================================================
 .about {
-  &__image-wrap {
-    position: relative;
-  }
+  &__image-wrap { position: relative; }
 
   &__image-frame {
     position: relative;
@@ -486,18 +514,19 @@ mark {
   &__avatar {
     width: 240px; height: 240px;
     border-radius: 24px;
-    background: linear-gradient(135deg, rgba($accent, 0.15), rgba($accent-blue, 0.1));
-    border: 1px solid rgba($accent, 0.2);
+    background: linear-gradient(135deg, rgba($accent, 0.12), rgba($accent-warm, 0.08));
+    border: 1.5px solid rgba($accent, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+    box-shadow: $shadow-md;
 
     &-initials {
       font-family: $font-display;
       font-size: 56px;
-      font-weight: 700;
+      font-weight: 800;
       color: $accent;
       z-index: 1;
     }
@@ -506,7 +535,7 @@ mark {
       position: absolute;
       inset: -8px;
       border-radius: 32px;
-      border: 2px dashed rgba($accent, 0.2);
+      border: 2px dashed rgba($accent, 0.25);
       animation: spin 20s linear infinite;
     }
   }
@@ -517,16 +546,16 @@ mark {
 
     &--1 {
       width: 60px; height: 60px;
-      background: rgba($accent, 0.15);
+      background: rgba($accent, 0.1);
       bottom: -20px; right: -20px;
-      border: 1px solid rgba($accent, 0.2);
+      border: 1.5px solid rgba($accent, 0.2);
     }
 
     &--2 {
       width: 40px; height: 40px;
-      background: rgba($accent-blue, 0.15);
+      background: rgba($accent-warm, 0.12);
       top: -12px; right: -12px;
-      border: 1px solid rgba($accent-blue, 0.2);
+      border: 1.5px solid rgba($accent-warm, 0.25);
     }
   }
 
@@ -538,36 +567,39 @@ mark {
 
   &__stat {
     background: $bg-card;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     border-radius: $radius-sm;
     padding: 16px;
     text-align: center;
     transition: $transition;
+    box-shadow: $shadow-sm;
 
-    &:hover { border-color: rgba($accent, 0.3); }
+    &:hover { border-color: rgba($accent, 0.3); transform: translateY(-2px); box-shadow: $shadow-md; }
   }
 
   &__stat-value {
     display: block;
     font-family: $font-display;
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 800;
     color: $accent;
   }
 
   &__stat-label {
     font-size: 12px;
     color: $text-muted;
+    font-weight: 500;
   }
 
   &__content { padding-left: 20px; @media (max-width: 767px) { padding-left: 0; } }
 
   &__tag {
     background: rgba($accent, 0.1) !important;
-    border: 1px solid rgba($accent, 0.3) !important;
+    border: 1px solid rgba($accent, 0.25) !important;
     color: $accent !important;
     font-family: $font-display !important;
     font-size: 11px !important;
+    font-weight: 700 !important;
     border-radius: 4px !important;
     margin-bottom: 20px;
   }
@@ -607,13 +639,12 @@ mark {
 // SKILLS
 // ============================================================
 .skills {
-  &__badges {
-    margin-top: 60px;
-  }
+  &__badges { margin-top: 60px; }
 
   &__badges-title {
     font-family: $font-display;
     font-size: 14px;
+    font-weight: 600;
     color: $text-muted;
     margin-bottom: 20px;
   }
@@ -627,33 +658,39 @@ mark {
   &__badge {
     display: inline-block;
     padding: 6px 16px;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     border-radius: 100px;
     font-size: 13px;
+    font-weight: 500;
     color: $text-muted;
     cursor: default;
+    background: $bg-card;
     transition: $transition;
+    box-shadow: $shadow-sm;
 
     &:hover {
       border-color: $accent;
       color: $accent;
       background: rgba($accent, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba($accent, 0.15);
     }
   }
 }
 
 .skill-card {
   background: $bg-card;
-  border: 1px solid $border;
+  border: 1.5px solid $border;
   border-radius: $radius;
   padding: 28px;
   height: 100%;
   transition: $transition;
+  box-shadow: $shadow-sm;
 
   &:hover {
-    border-color: rgba($accent, 0.2);
+    border-color: rgba($accent, 0.25);
     transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: $shadow-md;
   }
 
   &__header {
@@ -687,10 +724,10 @@ mark {
   }
 
   &__name { font-size: 13px; color: $text; font-weight: 500; }
-  &__level { font-size: 12px; color: $accent; font-family: $font-display; }
+  &__level { font-size: 12px; color: $accent; font-family: $font-display; font-weight: 700; }
 
   &__bar {
-    .ant-progress-inner { border-radius: 4px !important; }
+    .ant-progress-inner { background: rgba($accent, 0.08) !important; border-radius: 4px !important; }
     .ant-progress-bg { border-radius: 4px !important; transition: width 1.2s ease !important; }
   }
 }
@@ -703,30 +740,34 @@ mark {
     display: flex;
     gap: 8px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
   }
 
   &__filter-btn {
-    background: transparent;
-    border: 1px solid $border;
+    background: $bg-card;
+    border: 1.5px solid $border;
     color: $text-muted;
     padding: 8px 20px;
     border-radius: 100px;
     font-family: $font-display;
     font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
     transition: $transition;
+    box-shadow: $shadow-sm;
 
     &:hover, &.active {
       border-color: $accent;
       color: $accent;
-      background: rgba($accent, 0.05);
+      background: rgba($accent, 0.06);
+      box-shadow: 0 4px 14px rgba($accent, 0.15);
     }
   }
 }
 
 .project-card {
   background: $bg-card;
-  border: 1px solid $border;
+  border: 1.5px solid $border;
   border-radius: $radius;
   padding: 28px;
   height: 100%;
@@ -735,22 +776,24 @@ mark {
   transition: $transition;
   position: relative;
   overflow: hidden;
+  box-shadow: $shadow-sm;
 
   &::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 2px;
+    height: 3px;
     background: var(--accent, $accent);
     transform: scaleX(0);
     transition: transform $transition;
     transform-origin: left;
+    border-radius: 3px 3px 0 0;
   }
 
   &:hover {
-    border-color: rgba(255,255,255,0.12);
+    border-color: rgba($accent, 0.2);
     transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    box-shadow: $shadow-lg;
     &::before { transform: scaleX(1); }
   }
 
@@ -787,6 +830,7 @@ mark {
     font-size: 12px;
     color: var(--accent, $accent);
     font-family: $font-display;
+    font-weight: 600;
     margin-bottom: 12px;
   }
 
@@ -806,29 +850,31 @@ mark {
   }
 
   &__tag {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid $border !important;
-    color: $text-muted !important;
+    background: rgba($accent, 0.07) !important;
+    border: 1px solid rgba($accent, 0.15) !important;
+    color: $accent !important;
     font-size: 11px !important;
     border-radius: 4px !important;
     font-family: $font-display !important;
+    font-weight: 600 !important;
     padding: 2px 8px !important;
     transition: $transition !important;
 
     &:hover {
+      background: rgba($accent, 0.12) !important;
       border-color: rgba($accent, 0.3) !important;
-      color: $accent !important;
     }
   }
 
   &__details-btn {
     background: transparent;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     color: $text-muted;
     padding: 8px 16px;
     border-radius: $radius-sm;
     font-size: 12px;
     font-family: $font-display;
+    font-weight: 600;
     cursor: pointer;
     transition: $transition;
     display: flex;
@@ -836,16 +882,17 @@ mark {
     gap: 6px;
     width: fit-content;
 
-    &:hover { border-color: $accent; color: $accent; }
+    &:hover { border-color: $accent; color: $accent; background: rgba($accent, 0.04); }
   }
 }
 
 // Project Modal
 .project-modal {
   .ant-modal-content {
-    background: #12121c !important;
-    border: 1px solid $border;
+    background: $bg-card !important;
+    border: 1.5px solid $border;
     border-radius: $radius !important;
+    box-shadow: $shadow-lg !important;
   }
   .ant-modal-close { color: $text-muted !important; }
   .ant-modal-close:hover { color: $text !important; }
@@ -866,6 +913,7 @@ mark {
   &__title {
     font-family: $font-display;
     font-size: 22px;
+    font-weight: 800;
     color: $text;
     margin-bottom: 4px;
   }
@@ -874,6 +922,7 @@ mark {
     font-size: 12px;
     color: var(--accent, $accent);
     font-family: $font-display;
+    font-weight: 600;
   }
 
   &__desc {
@@ -896,14 +945,15 @@ mark {
 
     &--primary {
       background: $accent !important;
-      color: $bg !important;
+      color: #fff !important;
       border: none !important;
+      box-shadow: 0 4px 16px rgba($accent, 0.3) !important;
       &:hover { opacity: 0.9 !important; }
     }
 
     &--ghost {
       background: transparent !important;
-      border: 1px solid $border !important;
+      border: 1.5px solid $border !important;
       color: $text !important;
       &:hover { border-color: $accent !important; color: $accent !important; }
     }
@@ -929,14 +979,14 @@ mark {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    border-right: 1px solid $border;
+    border-right: 1.5px solid $border;
     padding-right: 4px;
 
     @media (max-width: 767px) {
       flex-direction: row;
       overflow-x: auto;
       border-right: none;
-      border-bottom: 1px solid $border;
+      border-bottom: 1.5px solid $border;
       padding-right: 0;
       padding-bottom: 4px;
     }
@@ -945,7 +995,7 @@ mark {
   &__tab {
     background: transparent;
     border: none;
-    border-left: 2px solid transparent;
+    border-left: 2.5px solid transparent;
     padding: 14px 20px;
     text-align: left;
     cursor: pointer;
@@ -955,14 +1005,14 @@ mark {
 
     @media (max-width: 767px) {
       border-left: none;
-      border-bottom: 2px solid transparent;
+      border-bottom: 2.5px solid transparent;
       border-radius: $radius-sm $radius-sm 0 0;
     }
 
-    &:hover { background: rgba(255,255,255,0.04); }
+    &:hover { background: rgba($accent, 0.05); }
 
     &--active {
-      background: rgba(226, 255, 93, 0.05);
+      background: rgba($accent, 0.07);
       border-left-color: var(--accent, $accent);
       @media (max-width: 767px) { border-bottom-color: var(--accent, $accent); border-left-color: transparent; }
     }
@@ -981,6 +1031,7 @@ mark {
     font-size: 11px;
     color: $text-muted;
     font-family: $font-display;
+    font-weight: 600;
   }
 
   &__panel {
@@ -988,17 +1039,14 @@ mark {
     @media (max-width: 767px) { padding-left: 0; padding-top: 20px; }
   }
 
-  &__detail {
-    animation: fadeIn 0.3s ease;
-  }
+  &__detail { animation: fadeIn 0.3s ease; }
 
-  &__detail-header {
-    margin-bottom: 16px;
-  }
+  &__detail-header { margin-bottom: 16px; }
 
   &__role {
     font-family: $font-display;
     font-size: 18px;
+    font-weight: 700;
     color: $text;
     margin-bottom: 8px;
   }
@@ -1022,6 +1070,7 @@ mark {
     color: $accent !important;
     font-family: $font-display !important;
     font-size: 11px !important;
+    font-weight: 700 !important;
   }
 
   &__summary {
@@ -1030,9 +1079,9 @@ mark {
     line-height: 1.8;
     margin-bottom: 20px;
     padding: 16px;
-    background: rgba(255,255,255,0.03);
+    background: rgba($accent, 0.04);
     border-radius: $radius-sm;
-    border-left: 2px solid rgba($accent, 0.4);
+    border-left: 3px solid rgba($accent, 0.5);
   }
 
   &__points {
@@ -1066,6 +1115,7 @@ mark {
   &__title {
     font-family: $font-display;
     font-size: 16px;
+    font-weight: 700;
     color: $text;
     margin-bottom: 24px;
     display: flex;
@@ -1075,8 +1125,9 @@ mark {
     &::before {
       content: '';
       display: block;
-      width: 24px; height: 1px;
+      width: 24px; height: 2px;
       background: $accent;
+      border-radius: 2px;
     }
   }
 
@@ -1088,14 +1139,15 @@ mark {
 
   &__card {
     background: $bg-card;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     border-radius: $radius;
     padding: 24px;
     position: relative;
     overflow: hidden;
     transition: $transition;
+    box-shadow: $shadow-sm;
 
-    &:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-3px); }
+    &:hover { border-color: rgba($accent, 0.2); transform: translateY(-3px); box-shadow: $shadow-md; }
   }
 
   &__card-accent {
@@ -1103,6 +1155,7 @@ mark {
     top: 0; left: 0; right: 0;
     height: 3px;
     background: var(--accent, $accent);
+    border-radius: 3px 3px 0 0;
   }
 
   &__degree {
@@ -1129,6 +1182,7 @@ mark {
 
   &__grade {
     font-family: $font-display;
+    font-weight: 700;
     color: var(--accent, $accent);
   }
 }
@@ -1149,6 +1203,7 @@ mark {
     &-title {
       font-family: $font-display;
       font-size: 16px;
+      font-weight: 700;
       color: $text;
       margin-bottom: 28px;
     }
@@ -1167,11 +1222,12 @@ mark {
     gap: 16px;
     padding: 14px;
     background: $bg-card;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     border-radius: $radius-sm;
     transition: $transition;
+    box-shadow: $shadow-sm;
 
-    &:hover { border-color: rgba($accent, 0.2); }
+    &:hover { border-color: rgba($accent, 0.25); transform: translateX(4px); box-shadow: $shadow-md; }
   }
 
   &__link-icon {
@@ -1191,6 +1247,7 @@ mark {
     font-size: 11px;
     color: $text-muted;
     font-family: $font-display;
+    font-weight: 600;
     margin-bottom: 2px;
   }
 
@@ -1207,28 +1264,29 @@ mark {
     align-items: center;
     gap: 16px;
     padding: 16px;
-    background: rgba(#00d97e, 0.05);
-    border: 1px solid rgba(#00d97e, 0.2);
+    background: rgba($accent-green, 0.06);
+    border: 1.5px solid rgba($accent-green, 0.25);
     border-radius: $radius-sm;
 
-    strong { display: block; font-size: 13px; color: $text; margin-bottom: 2px; }
+    strong { display: block; font-size: 13px; color: $text; margin-bottom: 2px; font-weight: 600; }
     p { font-size: 12px; color: $text-muted; margin: 0; }
   }
 
   &__avail-dot {
     width: 12px; height: 12px;
     border-radius: 50%;
-    background: #00d97e;
+    background: $accent-green;
     flex-shrink: 0;
-    box-shadow: 0 0 12px rgba(#00d97e, 0.5);
+    box-shadow: 0 0 12px rgba($accent-green, 0.5);
     animation: pulse 2s ease infinite;
   }
 
   &__form-wrap {
     background: $bg-card;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     border-radius: $radius;
     padding: 36px;
+    box-shadow: $shadow-sm;
   }
 
   &__form {
@@ -1236,21 +1294,22 @@ mark {
       color: $text-muted !important;
       font-size: 13px !important;
       font-family: $font-display !important;
+      font-weight: 600 !important;
     }
     .ant-form-item { margin-bottom: 20px; }
   }
 
   &__input {
-    background: rgba(255,255,255,0.04) !important;
-    border: 1px solid $border !important;
+    background: $bg !important;
+    border: 1.5px solid $border !important;
     color: $text !important;
     border-radius: $radius-sm !important;
     padding: 12px 16px !important;
     font-size: 14px !important;
     transition: $transition !important;
 
-    &::placeholder { color: rgba(255,255,255,0.2) !important; }
-    &:focus, &:hover { border-color: rgba($accent, 0.4) !important; box-shadow: 0 0 0 2px rgba($accent, 0.08) !important; }
+    &::placeholder { color: rgba($text, 0.3) !important; }
+    &:focus, &:hover { border-color: rgba($accent, 0.4) !important; box-shadow: 0 0 0 3px rgba($accent, 0.06) !important; }
     &.ant-input-status-error { border-color: $accent-red !important; }
   }
 
@@ -1258,7 +1317,7 @@ mark {
 
   &__submit-btn {
     background: $accent !important;
-    color: $bg !important;
+    color: #fff !important;
     border: none !important;
     height: auto !important;
     padding: 14px !important;
@@ -1270,12 +1329,12 @@ mark {
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
+    box-shadow: 0 6px 24px rgba($accent, 0.35) !important;
     transition: all $transition !important;
 
     &:hover:not([disabled]) {
       transform: translateY(-2px) !important;
-      box-shadow: 0 8px 30px rgba($accent, 0.3) !important;
-      opacity: 0.92 !important;
+      box-shadow: 0 10px 32px rgba($accent, 0.45) !important;
     }
   }
 }
@@ -1286,6 +1345,7 @@ mark {
 .footer {
   border-top: 1px solid $border;
   padding: 48px 24px;
+  background: $bg-alt;
 
   &__inner {
     max-width: 1160px;
@@ -1299,7 +1359,7 @@ mark {
   &__logo {
     font-family: $font-display;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   &__tagline {
@@ -1308,6 +1368,7 @@ mark {
     display: flex;
     align-items: center;
     gap: 6px;
+    font-weight: 500;
   }
 
   &__heart { color: $accent-red; font-size: 14px; }
@@ -1316,22 +1377,25 @@ mark {
 
   &__social {
     width: 40px; height: 40px;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     border-radius: $radius-sm;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
     color: $text-muted;
+    background: $bg-card;
+    box-shadow: $shadow-sm;
     transition: $transition;
 
-    &:hover { border-color: $accent; color: $accent; }
+    &:hover { border-color: $accent; color: $accent; transform: translateY(-2px); box-shadow: 0 6px 20px rgba($accent, 0.2); }
   }
 
   &__copy {
     font-size: 12px;
     color: rgba($text-muted, 0.6);
     font-family: $font-display;
+    font-weight: 600;
   }
 }
 
@@ -1339,10 +1403,10 @@ mark {
 // ANTD OVERRIDES
 // ============================================================
 .ant-notification-notice {
-  background: #16161f !important;
-  border: 1px solid rgba($accent, 0.2) !important;
+  background: $bg-card !important;
+  border: 1.5px solid rgba($accent, 0.2) !important;
   border-radius: $radius !important;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important;
+  box-shadow: $shadow-lg !important;
 
   .ant-notification-notice-message { color: $text !important; }
   .ant-notification-notice-description { color: $text-muted !important; }
@@ -1350,10 +1414,11 @@ mark {
 }
 
 .ant-tooltip-inner {
-  background: #1a1a28 !important;
-  border: 1px solid $border !important;
+  background: $text !important;
+  border: none !important;
   font-family: $font-display !important;
   font-size: 11px !important;
+  font-weight: 600 !important;
 }
 
 // ============================================================
@@ -1395,10 +1460,29 @@ mark {
   to { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// ============================================================
+// SCROLL-TRIGGERED REVEAL
+// ============================================================
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // ============================================================
 // SCROLLBAR
 // ============================================================
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: $bg; }
-::-webkit-scrollbar-thumb { background: rgba($accent, 0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba($accent, 0.5); }
+::-webkit-scrollbar-track { background: $bg-alt; }
+::-webkit-scrollbar-thumb { background: rgba($accent, 0.35); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba($accent, 0.55); }

@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Input, Button, notification } from "antd";
 import {
-  MailOutlined,
-  PhoneOutlined,
-  LinkedinOutlined,
-  GithubOutlined,
-  SendOutlined,
-  EnvironmentOutlined,
+  MailOutlined, PhoneOutlined, LinkedinOutlined,
+  GithubOutlined, SendOutlined, EnvironmentOutlined,
 } from "@ant-design/icons";
+import emailjs from "@emailjs/browser";
 
 const { TextArea } = Input;
+
+// 🔑 Replace these with your actual EmailJS credentials
+const EMAILJS_SERVICE_ID  = "service_jtgxf2w";
+const EMAILJS_TEMPLATE_ID = "template_avruhav";
+const EMAILJS_PUBLIC_KEY  = "atAwhWWUsoAX1TZI2";
 
 const contactInfo = [
   { icon: <MailOutlined />, label: "Email", value: "pathanjunaidkhan12@gmail.com", href: "mailto:pathanjunaidkhan12@gmail.com" },
   { icon: <PhoneOutlined />, label: "Phone", value: "+91 8767334052", href: "tel:+918767334052" },
-  { icon: <EnvironmentOutlined />, label: "Location", value: "Kalewadi, Pune, Maharashtra – 411017", href: null },
-  { icon: <LinkedinOutlined />, label: "LinkedIn", value: "linkedin.com/in/junedkhan", href: "https://linkedin.com" },
-  { icon: <GithubOutlined />, label: "GitHub", value: "github.com/junedkhan", href: "https://github.com" },
+  { icon: <EnvironmentOutlined />, label: "Location", value: "Hinjewadi Phase 1, Pune, Maharashtra – 411057", href: null },
+  { icon: <LinkedinOutlined />, label: "LinkedIn", value: "linkedin.com/in/junedkhan", href: "https://www.linkedin.com/in/junaid-khan-pathan/" },
+  { icon: <GithubOutlined />, label: "GitHub", value: "https://github.com/PathanJunaid", href: "https://github.com/PathanJunaid1403" },
 ];
 
 const Contact = () => {
@@ -25,15 +27,35 @@ const Contact = () => {
 
   const handleSubmit = async (values) => {
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
-    form.resetFields();
-    notification.success({
-      message: "Message Sent! 🎉",
-      description: "Thanks for reaching out. I'll get back to you within 24 hours.",
-      placement: "topRight",
-      className: "custom-notification",
-    });
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:  values.name,
+          from_email: values.email,
+          subject:    values.subject,
+          message:    values.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      form.resetFields();
+      notification.success({
+        message: "Message Sent! 🎉",
+        description: "Thanks for reaching out. I'll get back to you within 24 hours.",
+        placement: "topRight",
+        className: "custom-notification",
+      });
+    } catch (error) {
+      notification.error({
+        message: "Failed to Send",
+        description: "Something went wrong. Please try emailing me directly at pathanjunaidkhan12@gmail.com",
+        placement: "topRight",
+        className: "custom-notification",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -44,13 +66,11 @@ const Contact = () => {
           <h2 className="section-title">Get In Touch</h2>
           <span className="section-line" />
         </div>
-
         <p className="contact__intro">
-          I'm actively looking for full-time job opportunities in FrontEnd development or
-          back-office/administrative roles. If you have an opening or would like to
-          connect, feel free to reach out — I'd love to hear from you!
+          I'm actively looking for full-time frontend development opportunities.
+          If you have an opening or would like to connect, feel free to reach out —
+          I'd love to hear from you!
         </p>
-
         <Row gutter={[48, 40]}>
           <Col xs={24} md={10}>
             <div className="contact__info">
@@ -72,7 +92,6 @@ const Contact = () => {
                   </div>
                 ))}
               </div>
-
               <div className="contact__availability">
                 <div className="contact__avail-dot" />
                 <div>
@@ -82,7 +101,6 @@ const Contact = () => {
               </div>
             </div>
           </Col>
-
           <Col xs={24} md={14}>
             <div className="contact__form-wrap">
               <Form
@@ -114,7 +132,6 @@ const Contact = () => {
                     </Form.Item>
                   </Col>
                 </Row>
-
                 <Form.Item
                   name="subject"
                   label="Subject"
@@ -122,7 +139,6 @@ const Contact = () => {
                 >
                   <Input placeholder="Job Opportunity / Project / Collaboration" className="contact__input" />
                 </Form.Item>
-
                 <Form.Item
                   name="message"
                   label="Message"
@@ -134,7 +150,6 @@ const Contact = () => {
                     className="contact__input"
                   />
                 </Form.Item>
-
                 <Button
                   htmlType="submit"
                   loading={loading}

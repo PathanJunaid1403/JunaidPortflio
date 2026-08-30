@@ -3,33 +3,33 @@ import { Row, Col, Progress, Tooltip } from "antd";
 
 const skillCategories = [
   {
-    category: "FrontEnd Development",
+    category: "Frontend Core",
     icon: "💻",
     skills: [
-      { name: "HTML5", level: 85 },
-      { name: "CSS3", level: 80 },
-      { name: "JavaScript", level: 65 },
-      { name: "Responsive Design", level: 75 },
+      { name: "HTML5", level: 90 },
+      { name: "CSS3", level: 85 },
+      { name: "JavaScript (ES6+)", level: 72 },
+      { name: "React (Basics)", level: 65 },
+      { name: "Responsive Design", level: 82 },
     ],
   },
   {
-    category: "MS Office",
-    icon: "📊",
+    category: "UI & Styling",
+    icon: "🎨",
     skills: [
-      { name: "Microsoft Excel", level: 82 },
-      { name: "Microsoft Word", level: 88 },
-      { name: "Microsoft PowerPoint", level: 80 },
-      { name: "Data Entry", level: 85 },
+      { name: "Flexbox & Grid", level: 85 },
+      { name: "CSS Animations", level: 75 },
+      { name: "Bootstrap", level: 78 },
     ],
   },
   {
-    category: "Computer Skills",
-    icon: "🖥️",
+    category: "Dev Tools & Workflow",
+    icon: "🛠️",
     skills: [
-      { name: "Typing Speed", level: 78 },
-      { name: "File Management", level: 90 },
-      { name: "Documentation", level: 85 },
-      { name: "Internet & Email", level: 88 },
+      { name: "Git & GitHub", level: 72 },
+      { name: "VS Code", level: 88 },
+      { name: "Browser DevTools", level: 80 },
+      { name: "React Components & Hooks", level: 65 },
     ],
   },
   {
@@ -45,9 +45,11 @@ const skillCategories = [
 ];
 
 const techBadges = [
-  "HTML5", "CSS3", "JavaScript", "MS Excel", "MS Word", "MS PowerPoint",
-  "Data Entry", "File Management", "Documentation", "Typing", "MSCIT", "Internet",
-  "Email", "Adaptability", "Quick Learner", "Hard Working",
+  "HTML5", "CSS3", "JavaScript", "ES6+", "React", "JSX",
+  "React Hooks", "Components", "Responsive Design",
+  "Flexbox", "CSS Grid", "CSS Animations", "Bootstrap",
+  "Git", "GitHub", "VS Code", "Browser DevTools",
+  "Cross-browser Testing", "Quick Learner", "Team Player",
 ];
 
 const Skills = () => {
@@ -91,8 +93,8 @@ const Skills = () => {
                         percent={visible ? skill.level : 0}
                         showInfo={false}
                         className="skill-item__bar"
-                        strokeColor={{ "0%": "#e2ff5d", "100%": "#00d4ff" }}
-                        trailColor="rgba(255,255,255,0.08)"
+                        strokeColor={{ "0%": "#6366f1", "100%": "#a78bfa" }}
+                        trailColor="rgba(99,102,241,0.08)"
                       />
                     </div>
                   ))}

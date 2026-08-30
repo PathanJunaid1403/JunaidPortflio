@@ -32,6 +32,24 @@ const App = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Scroll-reveal observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    const revealEls = document.querySelectorAll(".reveal");
+    revealEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="app">
       <Navbar activeSection={activeSection} scrolled={scrolled} />

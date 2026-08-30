@@ -17,10 +17,10 @@ const Footer = () => {
         </p>
 
         <div className="footer__socials">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="footer__social">
+          <a href="https://github.com/PathanJunaid1403" target="_blank" rel="noreferrer" className="footer__social">
             <GithubOutlined />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="footer__social">
+          <a href="https://www.linkedin.com/in/junaid-khan-pathan/" target="_blank" rel="noreferrer" className="footer__social">
             <LinkedinOutlined />
           </a>
           <a href="mailto:pathanjunaidkhan12@gmail.com" className="footer__social">
