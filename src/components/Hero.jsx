@@ -44,7 +44,7 @@ const Hero = () => {
           A passionate Frontend Developer with a <mark>Diploma in FrontEnd Development</mark> and
           hands-on experience building responsive interfaces using <mark>HTML</mark>, <mark>CSS</mark>,{" "}
           <mark>JavaScript</mark> &amp; <mark>React (Basics)</mark>. Recently completed a{" "}
-          <mark>6-month internship at SAP Infosystems Pvt. Ltd. (Aug 2025 – Feb 2026)</mark>,
+          <mark>6-month Diploma</mark>,
           where I developed and optimized real-world web UIs — eager to bring that experience
           to a full-time frontend role.
         </p>
